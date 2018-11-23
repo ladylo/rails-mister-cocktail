@@ -1,0 +1,20 @@
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 20%), url('https://images.unsplash.com/photo-1504670482337-6863551c6f55?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=60383aeb54a3cbd56dcf5fe1753a01d8&auto=format&fit=crop&w=1950&q=80');">
+  <div class="banner-content">
+    <h1>Street Dance</h1>
+  </div>
+</div>
+
+<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1470337458703-46ad1756a187?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1998822d443cf97d75258149476c5aa5&auto=format&fit=crop&w=1949&q=80');">
+  <div class="card-category">Popular</div>
+  <div class="card-description">
+    <h2>
+      <% @cocktails.each do |cocktail| %>
+        <%= link_to "#{cocktail.name}", cocktail_path(cocktail) %>
+      <% end %>
+    </h2>
+    <p>Lime & Rhum</p>
+  </div>
+  <a class="card-link" href="#" ></a>
+</div>
+
+<%= link_to "Add a cocktail", new_cocktail_path, class: 'btn btn-primary'%>
