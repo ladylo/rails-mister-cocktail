@@ -4,17 +4,23 @@
   </div>
 </div>
 
-<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1470337458703-46ad1756a187?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=1998822d443cf97d75258149476c5aa5&auto=format&fit=crop&w=1949&q=80');">
-  <div class="card-category">Popular</div>
-  <div class="card-description">
-    <h2>
-      <% @cocktails.each do |cocktail| %>
-        <%= link_to "#{cocktail.name}", cocktail_path(cocktail) %>
-      <% end %>
-    </h2>
-    <p>Lime & Rhum</p>
+<div class="container">
+  <div class="row">
+    <% @cocktails.each do |cocktail| %>
+      <div class="col-xs-12 col-sm-4">
+        <%= link_to cocktail_path(cocktail) do %>
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path cocktail.photo, height: 300, width: 400, crop: :fill %>');">
+            <div class="card-category">Popular</div>
+            <div class="card-description">
+              <h2>
+                <%= cocktail.name%>
+              </h2>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
   </div>
-  <a class="card-link" href="#" ></a>
+  <div id="button" ><%= link_to "Add a cocktail", new_cocktail_path, class: 'btn-treehouse'%>
+  </div>
 </div>
-
-<%= link_to "Add a cocktail", new_cocktail_path, class: 'btn btn-primary'%>
